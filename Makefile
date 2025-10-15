@@ -1,12 +1,18 @@
 #CC = gcc
-CFLAGS = -Wall -g
+# CFLAGS = -Wall -g
+
 TARGET = adder
+
+CC ?= gcc
+CFLAGS ?= -Wall -g
+LDFLAGS ?=
+
 OBJ = adder.o
 
 all: $(TARGET)
 
 $(TARGET) : $(OBJ)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJ)
 
 %.o: %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
